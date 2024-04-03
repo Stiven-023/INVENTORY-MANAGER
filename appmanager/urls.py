@@ -1,4 +1,5 @@
 from django.urls import path, include
+from rest_framework.documentation import include_docs_urls
 from .views import *
 
 urlpatterns = [
@@ -43,4 +44,5 @@ urlpatterns = [
     path('logout/', exit, name='exit'),
     path('appmanager/login_user/', login_user, name='login'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('docs/', include_docs_urls(title="How to Use API")),
 ]
