@@ -9,3 +9,6 @@ RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 
 COPY . /App/
+
+# Crea las migraciones y las ejecuta
+RUN python manage.py makemigrations
