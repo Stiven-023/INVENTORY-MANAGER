@@ -1,4 +1,3 @@
-
 # INVENTORY-MANAGER
 
 Solución generica de un software gestor de inventario
@@ -19,9 +18,16 @@ Start the Enviroment
 ```
 
 
+
+
 ## Tech Stack
 
 **Client:** React
 
 **Server:** Django-RestFramework
+
+
+## Documentation
+
+[Documentation API](http://localhost:8000/inventory_manager/docs/)
 
