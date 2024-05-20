@@ -16,7 +16,8 @@ import {
     MdOutlineSettings,
     MdOutlineShoppingBag,
     MdBorderColor,
-    MdBarChart, } from "react-icons/md";
+    MdBarChart,
+    MdMenu  } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 import { SidebarContext, SidebarProvider } from "../../context/SidebarContext";
