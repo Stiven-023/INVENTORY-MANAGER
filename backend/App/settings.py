@@ -89,7 +89,7 @@ WSGI_APPLICATION = "App.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://automanager_user:K7i85wYj3sGz3YDxEsTrWn8UPhxCTYIY@dpg-cp5lhlocmk4c73f4f7fg-a.oregon-postgres.render.com/automanager',
+        default=env('DATABASE_URL'),
         conn_max_age=600
     )
 }
