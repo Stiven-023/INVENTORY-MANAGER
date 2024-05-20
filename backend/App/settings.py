@@ -81,19 +81,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "App.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
-    "default": {
-        "ENGINE": 'django.db.backends.postgresql',
-        "HOST": env('DATABASE_HOST'),
-        "PORT": env('DATABASE_PORT'),
-        "NAME": env('DATABASE_NAME'),
-        "USER": env('DATABASE_USER'),
-        "PASSWORD": env('DATABASE_PASSWORD'),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://automanager_user:K7i85wYj3sGz3YDxEsTrWn8UPhxCTYIY@dpg-cp5lhlocmk4c73f4f7fg-a.oregon-postgres.render.com/automanager',
+        conn_max_age=600
+    )
 }
 
 # Password validation
