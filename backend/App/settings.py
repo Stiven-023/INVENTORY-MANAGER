@@ -2,6 +2,7 @@ import os, ssl
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import environ
+import dj_database_url
 
 # Deshabilitar la verificación SSL
 ssl._create_default_https_context = ssl._create_unverified_context
