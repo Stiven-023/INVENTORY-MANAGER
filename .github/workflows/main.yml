@@ -11,7 +11,7 @@ on:
  # pull-requests: read # allows SonarQube to decorate PRs with analysis results
 
 jobs:
-  sonarqube:
+  sonarCloud:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
