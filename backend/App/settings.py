@@ -2,6 +2,7 @@ import os, ssl
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import environ
+import dj_database_url
 
 # Deshabilitar la verificación SSL
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -24,7 +25,11 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
                      
 # Application definition
@@ -88,14 +93,11 @@ WSGI_APPLICATION = "App.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": 'django.db.backends.postgresql',
-        "HOST": env('DATABASE_HOST'),
-        "PORT": env('DATABASE_PORT'),
-        "NAME": env('DATABASE_NAME'),
-        "USER": env('DATABASE_USER'),
-        "PASSWORD": env('DATABASE_PASSWORD'),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://automanager_user:K7i85wYj3sGz3YDxEsTrWn8UPhxCTYIY@dpg-cp5lhlocmk4c73f4f7fg-a.oregon-postgres.render.com/automanager',
+        conn_max_age=600
+    )
 }
 
 # Password validation
